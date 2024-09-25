@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://b31hurlcv6r26"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_eema0"]
+[ext_resource type="AudioStream" uid="uid://dq2y1prdycr5l" path="res://music/main_menu_loop.mp3" id="2_gjjin"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eema0")
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_right = 66.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "MINIMIA"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -68.0
+offset_right = 58.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="IniciarButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Iniciar"
+
+[node name="ConfiguracionButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Configuración"
+
+[node name="CreditosButton" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Créditos"
+
+[node name="SalirButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gjjin")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/IniciarButton" to="." method="_on_Iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConfiguracionButton" to="." method="_on_Configuracion_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditosButton" to="." method="_on_Creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/SalirButton" to="." method="_on_Salir_pressed"]

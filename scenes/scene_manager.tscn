@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4spu1wxoqxu0"]
+
+[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_cl16g"]
+[ext_resource type="PackedScene" uid="uid://vhyy031qfte3" path="res://scenes/player.tscn" id="2_k8ylw"]
+[ext_resource type="PackedScene" uid="uid://bj2xwa2dkcr5f" path="res://scenes/pause_menu.tscn" id="3_5skxx"]
+[ext_resource type="PackedScene" uid="uid://drng2mchf756d" path="res://scenes/inventory.tscn" id="4_klro3"]
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_cl16g")
+
+[node name="Player" parent="." instance=ExtResource("2_k8ylw")]
+position = Vector2(289, 200)
+
+[node name="Inventory" parent="." instance=ExtResource("4_klro3")]
+offset_right = 564.0
+offset_bottom = 495.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_5skxx")]
+visible = false

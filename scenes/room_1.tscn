@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcs5ske44y082"]
+
+[ext_resource type="Texture2D" uid="uid://c7p12l4atpgre" path="res://images/fondo_room_1.png" id="1_b7vvj"]
+[ext_resource type="PackedScene" uid="uid://cr4pdu6w7tueb" path="res://scenes/room_transition.tscn" id="2_ydwoj"]
+[ext_resource type="PackedScene" uid="uid://ufc4ql4o2w05" path="res://scenes/item_collectible.tscn" id="3_6j1l0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qdx03"]
+
+[node name="Room1" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(282, 248)
+texture = ExtResource("1_b7vvj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_qdx03")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-162.871, -30.7238)
+scale = Vector2(0.261202, 0.941532)
+build_mode = 1
+polygon = PackedVector2Array(738.398, 396.932, 1710.83, 507.39, 734.569, 364.007, 734.569, 318.336, 1707, 188.76, 2675.6, 306.653, 2694.74, 383.124, 1710.83, 506.328, 2664.11, 386.311, 2683.25, 197.257, 2683.25, 197.257, 1707, 63.4326, 734.569, 194.071)
+
+[node name="RoomTransition" parent="." instance=ExtResource("2_ydwoj")]
+position = Vector2(462, 329)
+target_scene = "res://scenes/room_2.tscn"
+
+[node name="Area2D" parent="." instance=ExtResource("3_6j1l0")]
+position = Vector2(258, 210)
