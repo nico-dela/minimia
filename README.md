@@ -1,0 +1,2 @@
+# minimia
+Point &amp; click
